@@ -14,7 +14,7 @@
     .hero {
       width: 100%;
       min-height: 100vh;
-      background: url('3.jpg') center/cover no-repeat;
+      background: url('your-image.jpg') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -121,6 +121,22 @@
       opacity: 1;
       transform: translateY(0);
     }
+  /* Page Transition */
+    .page-transition {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+    .page-transition.active {
+      opacity: 1;
+    }
+
+    /* Personalized name */
+    #guestName {
+      font-size: 18px;
+      margin-top: 8px;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
 </style>
 </head>
 <body>
@@ -128,9 +144,10 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="overlay"></div>
-    <div class="hero-content">
-      <h1 style="font-size: 42px; letter-spacing: 4px;">SARAH & MULKI</h1>
-      <p>25 . JANUARY . 2026</p>
+    <div class="hero-content page-transition" id="pageHero">
+      <h1 style="font-size: 42px; letter-spacing: 4px;">JASMINE & BAYU</h1>
+      <p>12 . NOVEMBER . 2022</p>
+      <p id="guestName"></p>
       <button class="open-btn" onclick="openInvitation()">📖 Open Invitation</button>
     </div>
   </section>
@@ -142,17 +159,17 @@
 
     <div class="fade-up" style="margin-top: 30px;">
       <h3>👰 Bride & Groom</h3>
-      <p>Sarah & Mulki warmly welcome you.</p>
+      <p>Jasmine & Bayu warmly welcome you.</p>
     </div>
 
     <div class="fade-up" style="margin-top: 30px;">
       <h3>📅 Date & Time</h3>
-      <p>Sunday, 25 January 2026<br>08:00 AM - Ceremony<br>11:00 PM - Reception</p>
+      <p>Saturday, 12 November 2022<br>10:00 AM - Ceremony<br>12:00 PM - Reception</p>
     </div>
 
     <div class="fade-up" style="margin-top: 30px;">
       <h3>📍 Venue</h3>
-      <p>Joglo Asri SKI<br>Cilegon, Indonesia</p>
+      <p>Grand Hall Resort<br>Jakarta, Indonesia</p>
     </div>
 
     <div class="fade-up" style="margin-top: 30px;">
@@ -162,6 +179,19 @@
   </section>
 
   <script>
+    /* URL parameter for guest name */
+    const urlParams = new URLSearchParams(window.location.search);
+    const guest = urlParams.get('to');
+    if (guest) {
+      document.getElementById('guestName').innerText = `Dear, ${guest}`;
+    }
+
+    /* Page transition activation */
+    window.addEventListener('load', () => {
+      document.getElementById('pageHero').classList.add('active');
+    });
+
+
     function openInvitation() {
       const invite = document.getElementById('invitation-section');
       invite.style.display = 'block';
@@ -175,6 +205,15 @@
           }, index * 250);
         });
       }, 600);
+    }
+  </script>() {
+      const invite = document.getElementById('invitation-section');
+      invite.style.display = 'block';
+      invite.classList.add('cinematic-scroll');
+      window.scrollTo({ top: invite.offsetTop, behavior: 'smooth' });
+    }() {
+      document.getElementById('invitation-section').style.display = 'block';
+      window.scrollTo({ top: document.getElementById('invitation-section').offsetTop, behavior: 'smooth' });
     }
   </script>
 
@@ -192,10 +231,10 @@
   <section id="gallery" style="padding:60px 20px; text-align:center; max-width:900px; margin:auto;">
     <h2 class="fade-up">Our Moments</h2>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; margin-top:25px;">
-      <img class="fade-up" src="img/1.jpg" style="width:100%; border-radius:12px;">
-      <img class="fade-up" src="img/2.jpg" style="width:100%; border-radius:12px;">
-      <img class="fade-up" src="img/3.jpg" style="width:100%; border-radius:12px;">
-      <img class="fade-up" src="img/4.jpg" style="width:100%; border-radius:12px;">
+      <img class="fade-up" src="img/gallery1.jpg" style="width:100%; border-radius:12px;">
+      <img class="fade-up" src="img/gallery2.jpg" style="width:100%; border-radius:12px;">
+      <img class="fade-up" src="img/gallery3.jpg" style="width:100%; border-radius:12px;">
+      <img class="fade-up" src="img/gallery4.jpg" style="width:100%; border-radius:12px;">
     </div>
   </section>
 
@@ -235,7 +274,7 @@
     <h2 class="fade-up">Location</h2>
 
     <div class="fade-up" style="margin-top:20px;">
-      <iframe src="https://maps.app.goo.gl/MMAxvyTJ3xcayBwy6" width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.018!2d110.366!3d-7.821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zN8KwNDknMTUuMCJTIDExMMKwMjInMDEuNiJF!5e0!3m2!1sen!2sid!4v000000" width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </section>
 
