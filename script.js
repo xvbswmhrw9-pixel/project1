@@ -12,20 +12,21 @@ window.addEventListener('load', () => {
 
 /* Open Invitation */
 function openInvitation() {
+  const hero = document.querySelector('.hero');
   const invite = document.getElementById('invitation-section');
-  invite.style.display = 'block';
 
-  window.scrollTo({
-    top: invite.offsetTop,
-    behavior: 'smooth'
-  });
+  hero.classList.add('fade-out');
 
-  /* Fade-up stagger */
   setTimeout(() => {
+    hero.style.display = 'none';
+    invite.style.display = 'block';
+
+    window.scrollTo({ top: invite.offsetTop, behavior: 'smooth' });
+
     document.querySelectorAll('.fade-up').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), i * 250);
+      setTimeout(() => el.classList.add('visible'), i * 200);
     });
-  }, 500);
+  }, 600);
 }
 
 /* Background music auto play on user interaction */
