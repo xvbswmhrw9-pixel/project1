@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #faf7f2;
+    }
+
+    .hero {
+      width: 100%;
+      min-height: 100vh;
+      background: url('your-image.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 60px;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      color: white;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .open-btn {
+      margin-top: 20px;
+      padding: 12px 22px;
+      border-radius: 30px;
+      background: white;
+      color: #a00000;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .open-btn:hover {
+      background: #f2f2f2;
+    }
+
+    /* Hidden Invitation */
+    #invitation-section {
+      display: none;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+    /* Cinematic slow scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .cinematic-scroll {
+      animation: cinematicMove 1.8s ease-out forwards;
+    }
+
+    @keyframes cinematicMove {
+      0% { opacity: 0; transform: translateY(80px) scale(1.03); }
+      60% { opacity: 1; }
+      100% { transform: translateY(0) scale(1); }
+    }
+  /* Cinematic slow scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hero {
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .cinematic-scroll {
+      animation: cinematicMove 1.8s ease-out forwards;
+    }
+
+    @keyframes cinematicMove {
+      0% { opacity: 0; transform: translateY(80px) scale(1.03); }
+      60% { opacity: 1; }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    /* Fade-up staggered elements */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s ease-out;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+</style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 style="font-size: 42px; letter-spacing: 4px;">JASMINE & BAYU</h1>
+      <p>12 . NOVEMBER . 2022</p>
+      <button class="open-btn" onclick="openInvitation()">📖 Open Invitation</button>
+    </div>
+  </section>
+
+  <!-- MAIN INVITATION CONTENT -->
+  <section id="invitation-section">
+    <h2 class="fade-up">Wedding Invitation</h2>
+    <p class="fade-up">We joyfully invite you to celebrate our special day.</p>
+
+    <div class="fade-up" style="margin-top: 30px;">
+      <h3>👰 Bride & Groom</h3>
+      <p>Jasmine & Bayu warmly welcome you.</p>
+    </div>
+
+    <div class="fade-up" style="margin-top: 30px;">
+      <h3>📅 Date & Time</h3>
+      <p>Saturday, 12 November 2022<br>10:00 AM - Ceremony<br>12:00 PM - Reception</p>
+    </div>
+
+    <div class="fade-up" style="margin-top: 30px;">
+      <h3>📍 Venue</h3>
+      <p>Grand Hall Resort<br>Jakarta, Indonesia</p>
+    </div>
+
+    <div class="fade-up" style="margin-top: 30px;">
+      <h3>💌 Message</h3>
+      <p>"Your presence will make our moments more meaningful."</p>
+    </div>
+  </section>
+
+  <script>
+    function openInvitation() {
+      const invite = document.getElementById('invitation-section');
+      invite.style.display = 'block';
+      invite.classList.add('cinematic-scroll');
+      window.scrollTo({ top: invite.offsetTop, behavior: 'smooth' });
+
+      setTimeout(() => {
+        document.querySelectorAll('.fade-up').forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, index * 250);
+        });
+      }, 600);
+    }
+  </script>
+    function openInvitation() {
+      const invite = document.getElementById('invitation-section');
+      invite.style.display = 'block';
+      invite.classList.add('cinematic-scroll');
+      window.scrollTo({ top: invite.offsetTop, behavior: 'smooth' });
+    }() {
+      document.getElementById('invitation-section').style.display = 'block';
+      window.scrollTo({ top: document.getElementById('invitation-section').offsetTop, behavior: 'smooth' });
+    }
+  </script>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bg-music" src="music.mp3" loop></audio>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bg-music');
+      const playMusic = () => { music.play(); document.removeEventListener('click', playMusic); };
+      document.addEventListener('click', playMusic);
+    });
+  </script>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery" style="padding:60px 20px; text-align:center; max-width:900px; margin:auto;">
+    <h2 class="fade-up">Our Moments</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; margin-top:25px;">
+      <img class="fade-up" src="img/gallery1.jpg" style="width:100%; border-radius:12px;">
+      <img class="fade-up" src="img/gallery2.jpg" style="width:100%; border-radius:12px;">
+      <img class="fade-up" src="img/gallery3.jpg" style="width:100%; border-radius:12px;">
+      <img class="fade-up" src="img/gallery4.jpg" style="width:100%; border-radius:12px;">
+    </div>
+  </section>
+
+  <!-- RSVP SECTION -->
+  <section id="rsvp" style="padding:60px 20px; text-align:center; max-width:700px; margin:auto;">
+    <h2 class="fade-up">RSVP</h2>
+    <p class="fade-up">Please confirm your attendance below.</p>
+
+    <form class="fade-up" id="rsvpForm" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST" style="margin-top:20px; display:flex; flex-direction:column; gap:15px;">
+      <input type="text" name="name" placeholder="Your Name" required style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+      <input type="text" name="guest" placeholder="Number of Guests" required style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+      <select name="attendance" required style="padding:12px; border-radius:10px; border:1px solid #ccc;">
+        <option value="">Will you attend?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <button type="submit" style="padding:12px; background:#b34343; color:white; border:none; border-radius:10px; cursor:pointer;">Send RSVP</button>
+    </form>
+
+    <p id="rsvpStatus" style="margin-top:15px; display:none;">Thank you! Your response has been recorded.</p>
+
+    <script>
+      const form = document.getElementById('rsvpForm');
+      const status = document.getElementById('rsvpStatus');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = new FormData(form);
+        fetch(form.action, { method:'POST', body:data })
+          .then(() => { status.style.display='block'; form.reset(); })
+          .catch(() => alert('Error sending RSVP'));
+      });
+    </script>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section id="map" style="padding:60px 20px; text-align:center; max-width:900px; margin:auto;">
+    <h2 class="fade-up">Location</h2>
+
+    <div class="fade-up" style="margin-top:20px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.018!2d110.366!3d-7.821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zN8KwNDknMTUuMCJTIDExMMKwMjInMDEuNiJF!5e0!3m2!1sen!2sid!4v000000" width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+</body>
+</html>
