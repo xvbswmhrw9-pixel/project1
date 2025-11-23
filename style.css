@@ -1,104 +1,46 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #faf7f2;
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#efeae6;color:#6b4438}
+
+/* Page layout */
+.page{min-height:90vh;display:flex;align-items:center;justify-content:center;padding:80px 20px}
+.container{max-width:720px;width:100%;display:flex;gap:36px;align-items:center;justify-content:center}
+.container.reverse{flex-direction:row-reverse}
+
+/* Polaroid frame */
+.polaroid{width:300px;background:#fff;padding:18px 18px 36px;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,0.12);transform:rotate(-2deg)}
+.polaroid img{display:block;width:100%;height:auto;border-radius:2px}
+
+/* Text */
+.text{max-width:360px;text-align:left}
+.text .intro{font-size:14px;opacity:.8;margin-bottom:12px}
+.name{font-family:'Segoe UI', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size:34px;color:#9b2b2b;line-height:1.05;letter-spacing:3px;margin-bottom:12px}
+.parents{font-size:14px;color:#8b6b63}
+
+/* Polaroid tilt variants */
+.container.reverse .polaroid{transform:rotate(4deg)}
+
+/* ===== Scroll reveal animations (Intersection Observer) ===== */
+.reveal-left, .reveal-right, .reveal {
+opacity:0;transform:translateY(30px);transition:all 900ms cubic-bezier(.22,.9,.31,1);
 }
 
-.hero {
-  width: 100%;
-  min-height: 100vh;
-  background: url('img/4.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-  padding-bottom: 60px;
-  position: relative;
+.reveal-left{transform:translateX(-120px);}
+.reveal-right{transform:translateX(120px);}
+
+.reveal-left.show, .reveal-right.show, .reveal.show{
+opacity:1;transform:none;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
+/* Stagger helper (delay via inline style in JS) */
+
+/* Responsive tweaks */
+@media (max-width:700px){
+.container{flex-direction:column;gap:18px;padding:0 18px}
+.container.reverse{flex-direction:column}
+.polaroid{width:260px}
+.text{text-align:center}
 }
 
-.hero-content {
-  position: relative;
-  color: #fff;
-  text-align: center;
-  z-index: 2;
-  opacity: 0;
-  transition: 1s ease-in-out;
-}
-.hero-content.active {
-  opacity: 1;
-}
-
-.open-btn {
-  margin-top: 20px;
-  padding: 12px 22px;
-  border-radius: 30px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.invitation {
-  display: none;
-  padding: 40px 20px;
-  max-width: 700px;
-  margin: auto;
-}
-
-.fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.9s ease-out;
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.gallery .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-top: 25px;
-}
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-#rsvpForm {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
-#rsvpForm input, #rsvpForm select {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-#rsvpForm button {
-  padding: 12px;
-  background: #b34343;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-#rsvpStatus {
-  display: none;
-  margin-top: 10px;
-}
-
-.map iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-  border-radius: 12px;
-}
+/* Optional subtle parallax background */
+body:before{content:'';position:fixed;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.85));pointer-events:none}
