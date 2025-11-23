@@ -80,82 +80,65 @@ body {
   transform: scale(1.05);
 }
 
-/* Main Menu */
-#mainMenu {
-  background: white;
-  padding: 40px 20px;
+.verse-section {
+  padding: 100px 20px 180px;
   text-align: center;
 }
 
-.menu-header h2 {
-  font-size: 30px;
-  margin-bottom: 20px;
+/* Polaroid Style */
+.polaroid {
+  width: 380px;
+  margin: 0 auto;
+  background: #f8f8f8;
+  padding: 20px 20px 70px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+  position: relative;
+  border-radius: 4px;
 }
 
-.menu-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.polaroid img {
+  width: 100%;
+  display: block;
+  border-radius: 3px;
 }
 
-.menu-item {
-  font-size: 22px;
-  text-decoration: none;
-  color: #222;
-  padding: 12px 0;
-  border-bottom: 1px solid #eee;
-  transition: 0.3s;
+/* Tape */
+.tape {
+  width: 90px;
+  height: 50px;
+  background: rgba(222, 191, 128, 0.8);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  border-radius: 4px;
 }
 
-.menu-item:hover {
-  letter-spacing: 1px;
-  opacity: 0.7;
+/* Verse Text */
+.verse p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-top: 60px;
 }
 
-
-/* Basic reset */
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#efeae6;color:#6b4438}
-
-/* Page layout */
-.page{min-height:90vh;display:flex;align-items:center;justify-content:center;padding:80px 20px}
-.container{max-width:720px;width:100%;display:flex;gap:36px;align-items:center;justify-content:center}
-.container.reverse{flex-direction:row-reverse}
-
-/* Polaroid frame */
-.polaroid{width:300px;background:#fff;padding:18px 18px 36px;border-radius:6px;box-shadow:0 10px 30px rgba(0,0,0,0.12);transform:rotate(-2deg)}
-.polaroid img{display:block;width:100%;height:auto;border-radius:2px}
-
-/* Text */
-.text{max-width:360px;text-align:left}
-.text .intro{font-size:14px;opacity:.8;margin-bottom:12px}
-.name{font-family:'Segoe UI', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size:34px;color:#9b2b2b;line-height:1.05;letter-spacing:3px;margin-bottom:12px}
-.parents{font-size:14px;color:#8b6b63}
-
-/* Polaroid tilt variants */
-.container.reverse .polaroid{transform:rotate(4deg)}
-
-/* ===== Scroll reveal animations (Intersection Observer) ===== */
-.reveal-left, .reveal-right, .reveal {
-opacity:0;transform:translateY(30px);transition:all 900ms cubic-bezier(.22,.9,.31,1);
+.verse .ref {
+  margin-top: 15px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  border: 2px solid #333;
+  padding: 6px 14px;
+  display: inline-block;
+  border-radius: 40px;
 }
 
-.reveal-left{transform:translateX(-120px);}
-.reveal-right{transform:translateX(120px);}
-
-.reveal-left.show, .reveal-right.show, .reveal.show{
-opacity:1;transform:none;
+/* Reveal Animation (Scroll Trigger) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.1s ease-out;
 }
 
-/* Stagger helper (delay via inline style in JS) */
-
-/* Responsive tweaks */
-@media (max-width:700px){
-.container{flex-direction:column;gap:18px;padding:0 18px}
-.container.reverse{flex-direction:column}
-.polaroid{width:260px}
-.text{text-align:center}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-
-/* Optional subtle parallax background */
-body:before{content:'';position:fixed;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.85));pointer-events:none}
