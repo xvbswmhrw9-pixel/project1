@@ -1,3 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #222;
+  overflow-x: hidden;
+}
+
+/* Page Structure */
+.page {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.page.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.page.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Landing Page */
+#landing {
+  background: url("hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-inner {
+  text-align: center;
+  padding: 20px;
+  backdrop-filter: blur(3px);
+}
+
+.title {
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+.guest-name {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Button */
+.open-btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  background: #111;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.open-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Main Menu */
+#mainMenu {
+  background: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.menu-header h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-item {
+  font-size: 22px;
+  text-decoration: none;
+  color: #222;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+
 /* Basic reset */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#efeae6;color:#6b4438}
