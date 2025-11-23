@@ -33,31 +33,19 @@ if(intro) intro.textContent = `Dear, ${decodeURIComponent(guest)} — We invite 
 }
 })();
 
-// Scroll-trigger using IntersectionObserver with stagger
-document.addEventListener('DOMContentLoaded', ()=>{
-const observer = new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-// add staggered class to children
-const els = entry.target.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-Array.from(els).forEach((el,i)=>{
-setTimeout(()=> el.classList.add('show'), i*150);
-});
-observer.unobserve(entry.target);
-}
-});
-},{threshold:0.18});
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
 
-// observe each section
-document.querySelectorAll('.page').forEach(section=> observer.observe(section));
+const options = {
+  threshold: 0.25
+};
 
-// small parallax on scroll for polaroid
-const polaroids = document.querySelectorAll('.polaroid img');
-window.addEventListener('scroll', ()=>{
-const sc = window.scrollY;
-polaroids.forEach((img, idx)=>{
-const depth = (idx%2===0?1:-1)*0.05;
-img.style.transform = `translateY(${sc*depth}px)`;
-});
-});
-});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, options);
+
+reveals.forEach(el => observer.observe(el));
