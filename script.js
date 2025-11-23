@@ -1,3 +1,27 @@
+// --------------------- Transition Logic ---------------------
+const openBtn = document.getElementById("openBtn");
+const landing = document.getElementById("landing");
+const mainMenu = document.getElementById("mainMenu");
+
+openBtn.addEventListener("click", () => {
+  landing.classList.remove("visible");
+  landing.classList.add("hidden");
+
+  setTimeout(() => {
+    mainMenu.classList.remove("hidden");
+    mainMenu.classList.add("visible");
+  }, 900);
+});
+
+// --------------------- Dynamic Guest Name ---------------------
+const urlParams = new URLSearchParams(window.location.search);
+const guest = urlParams.get("to");
+
+if (guest) {
+  document.getElementById("guestName").textContent = `Dear ${guest},`;
+}
+
+
 // Dynamic guest name via URL: ?to=Name
 (function(){
 const params = new URLSearchParams(location.search);
