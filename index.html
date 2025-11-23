@@ -1,89 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wedding Invitation</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wedding — Jasmine & Bayu</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content page-transition" id="pageHero">
-      <h1>SARAH & MULKI</h1>
-      <p>25 . JANUARY . 2026</p>
-      <p id="guestName"></p>
-      <button class="open-btn" onclick="openInvitation()">📖 Open Invitation</button>
-    </div>
-  </section>
+<!-- HERO / BRIDE SECTION -->
+<main id="content">
+<section id="bride" class="page">
+<div class="container">
+<div class="polaroid reveal-right">
+<img src="/mnt/data/63e08150-c380-4f25-a5e4-7a4878532c49.png" alt="Bride">
+</div>
 
-  <!-- MAIN INVITATION CONTENT -->
-  <section id="invitation-section" class="invitation">
-    <h2 class="fade-up">Wedding Invitation</h2>
-    <p class="fade-up">We joyfully invite you to celebrate our special day.</p>
+<div class="text reveal-right">
+<div class="intro">We invite you to join our wedding</div>
+<h1 class="name">FAUZIAH<br>JASMINE</h1>
+<p class="parents">Putri Pertama dari<br>Bapak (Alm) Yoyo Sucahyo &amp; Ibu Lina Raeny</p>
+</div>
+</div>
+</section>
 
-    <div class="fade-up block">
-      <h3>👰 Bride & Groom</h3>
-      <p>Sarah & Mulki warmly welcome you.</p>
-    </div>
+<!-- GROOM SECTION -->
+<section id="groom" class="page">
+<div class="container reverse">
+<div class="polaroid reveal-left">
+<img src="/mnt/data/63e08150-c380-4f25-a5e4-7a4878532c49.png" alt="Groom">
+</div>
 
-    <div class="fade-up block">
-      <h3>📅 Date & Time</h3>
-      <p>Sunday, 25 January 2026<br>08:00 AM - Ceremony<br>11:00 PM - Reception</p>
-    </div>
+<div class="text reveal-left">
+<h1 class="name">BAYU TRI<br>ASTANTO</h1>
+<p class="parents">Putra Ketiga dari<br>Bapak (Alm) H. Mulyadi &amp; Ibu Nonoy Suryati</p>
+</div>
+</div>
+</section>
 
-    <div class="fade-up block">
-      <h3>📍 Venue</h3>
-      <p>Joglo Asri SKI<br>Cilegon, Indonesia</p>
-    </div>
-
-    <div class="fade-up block">
-      <h3>💌 Message</h3>
-      <p>"Your presence will make our moments more meaningful."</p>
-    </div>
-  </section>
-
-  <!-- BACKGROUND MUSIC -->
-  <audio id="bg-music" src="music/bg.mp3" loop></audio>
-
-  <!-- GALLERY SECTION -->
-  <section id="gallery" class="gallery">
-    <h2 class="fade-up">Our Moments</h2>
-    <div class="grid">
-      <img class="fade-up" src="img/1.jpg">
-      <img class="fade-up" src="img/2.jpg">
-      <img class="fade-up" src="img/3.jpg">
-      <img class="fade-up" src="img/4.jpg">
-    </div>
-  </section>
-
-  <!-- RSVP SECTION -->
-  <section id="rsvp" class="rsvp">
-    <h2 class="fade-up">RSVP</h2>
-    <p class="fade-up">Please confirm your attendance below.</p>
-
-    <form class="fade-up" id="rsvpForm" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="text" name="guest" placeholder="Number of Guests" required>
-      <select name="attendance" required>
-        <option value="">Will you attend?</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
-      <button type="submit">Send RSVP</button>
-    </form>
-
-    <p id="rsvpStatus">Thank you! Your response has been recorded.</p>
-  </section>
-
-  <!-- MAP SECTION -->
-  <section id="map" class="map">
-    <h2 class="fade-up">Location</h2>
-    <iframe src="https://maps.app.goo.gl/MMAxvyTJ3xcayBwy6" allowfullscreen="" loading="lazy"></iframe>
-  </section>
+</main>
 
 </body>
 </html>
