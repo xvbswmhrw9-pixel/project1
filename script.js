@@ -49,3 +49,48 @@ const observer = new IntersectionObserver((entries) => {
 }, options);
 
 reveals.forEach(el => observer.observe(el));
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Dapatkan semua elemen yang memiliki efek transisi cinematic
+    const cinematicElements = document.querySelectorAll(
+        '.cinematic-text, .cinematic-image, .cinematic-form'
+    );
+
+    // 2. Opsi untuk Intersection Observer
+    // rootMargin: '0px 0px -10% 0px' berarti elemen akan dianggap terlihat
+    // saat 10% dari bagian bawah viewport melewati elemen.
+    const observerOptions = {
+        root: null, // Menggunakan viewport sebagai root
+        rootMargin: '0px 0px -10% 0px', 
+        threshold: 0.1 // Memicu saat 10% elemen terlihat
+    };
+
+    // 3. Buat Intersection Observer
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Jika elemen sedang berpotongan dengan viewport
+            if (entry.isIntersecting) {
+                // Tambahkan kelas 'active' untuk memicu transisi di CSS
+                entry.target.classList.add('active');
+                
+                // Opsional: Hentikan pengamatan setelah dianimasikan
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // 4. Mulai mengamati setiap elemen cinematic
+    cinematicElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    // 5. Bonus: Logic untuk Form RSVP (hanya untuk mencegah refresh halaman)
+    const rsvpForm = document.querySelector('.rsvp-form');
+    if (rsvpForm) {
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Wishes Sent! (In a real app, this data would be saved to a database.)');
+            // Reset form setelah "terkirim"
+            rsvpForm.reset(); 
+        });
+    }
+});
