@@ -19,9 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
     getGuestNameFromUrl();
 
 
+    // ... (Kode getGuestNameFromUrl() yang sudah ada) ...
+
     // --- FUNGSI 2: MENGELOLA LANDING PAGE ---
     const landingPage = document.getElementById('landing');
     const openBtn = document.getElementById('openBtn');
+    const mainContent = document.getElementById('mainContent'); // Ambil elemen main content
     
     // Pastikan landing page terlihat saat DOM diload
     if (landingPage) {
@@ -29,22 +32,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     openBtn.addEventListener('click', function() {
-        // Hilangkan landing page dengan transisi
+        // 1. Hilangkan landing page dengan transisi (opacity)
         landingPage.classList.remove('visible');
         
-        // Setelah transisi selesai, hilangkan elemen sepenuhnya
+        // 2. Tampilkan konten utama dan aktifkan scroll
+        mainContent.style.display = 'block'; 
+        document.body.style.overflowY = 'scroll';
+
+        // 3. Setelah transisi landing page selesai, sembunyikan sepenuhnya elemen landing
         setTimeout(() => {
             landingPage.style.display = 'none';
-            // Aktifkan scroll pada body
-            document.body.style.overflowY = 'scroll';
         }, 800); // 800ms sesuai dengan transisi CSS
-        
+
+        // 4. Setelah membuka halaman, kita panggil ulang observer
+        // Karena konten utama awalnya tersembunyi, Intersection Observer mungkin tidak bekerja
+        // dengan baik. Kita panggil ulang pengamatan setelah konten ditampilkan.
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+
         // Opsional: Langsung mainkan musik/audio jika ada
         // playBackgroundMusic(); 
     });
     
     // Matikan scroll saat di landing page
     document.body.style.overflowY = 'hidden';
+
+// ... (Kode Intersection Observer dan Form RSVP lainnya) ...
 
 
     // --- FUNGSI 3: CINEMATIC SCROLL ANIMATION (REVEAL) ---
