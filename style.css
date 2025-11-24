@@ -328,6 +328,46 @@ main {
 }
 /* Tambahkan lebih banyak style untuk RSVP jika diperlukan */
 
+/* --- LOKASI GOOGLE MAPS STYLING BARU --- */
+.location-page {
+    background-color: #ffffff; /* Latar putih untuk menonjolkan peta */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.map-container {
+    width: 90%;
+    max-width: 700px;
+    height: 400px; /* Tinggi peta */
+    margin: 2rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #5d7589;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.map-btn:hover {
+    background-color: #4a6275;
+}
+
+
 /* --- Media Queries for Responsiveness --- */
 @media (max-width: 768px) {
     .title {
