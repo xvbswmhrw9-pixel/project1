@@ -17,7 +17,7 @@ body {
 }
 
 h1, h2, h3, h4, .title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Reenie Beenie', serif;
     color: #5d7589;
 }
 
@@ -30,7 +30,7 @@ h1, h2, h3, h4, .title {
     height: 100vh;
     
     /* --- BACKGROUND BARU --- */
-    background-image: url('https://placehold.co/1200x800/2f3a47/white?text=Our+Wedding+Photo'); /* Ganti URL ini dengan gambar Anda */
+    background-image: url('img/3.jpg'); /* Ganti URL ini dengan gambar Anda */
     background-size: cover;
     background-position: center;
     background-color: #e8e5df; 
